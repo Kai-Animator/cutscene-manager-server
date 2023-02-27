@@ -9,7 +9,7 @@ exports.seed = async function(knex) {
     {
       cut_id: -1,
       cs_code: 'mq6s03x0',
-      cut_name: 'c01xa',
+      cut_name: '01xa',
       start_date: '2023-02-18',
       end_date: '2023-02-19',
       animator: 'navarro',
@@ -18,7 +18,7 @@ exports.seed = async function(knex) {
     {
       cut_id: -2,
       cs_code: 'mq6s03x0',
-      cut_name: 'c02xa',
+      cut_name: '02xa',
       start_date: '2023-02-19',
       end_date: '2023-02-20',
       animator: 'navarro',
@@ -27,7 +27,7 @@ exports.seed = async function(knex) {
     {
       cut_id: -3,
       cs_code: 'mq6s03x0',
-      cut_name: 'c02ya',
+      cut_name: '02ya',
       start_date: '2023-02-21',
       end_date: '2023-02-21',
       animator: 'Bandit',
@@ -36,7 +36,7 @@ exports.seed = async function(knex) {
     {
       cut_id: -4,
       cs_code: 'mq6s03x0',
-      cut_name: 'c03xa',
+      cut_name: '03xa',
       start_date: '2023-02-21',
       end_date: '2023-02-21',
       animator: 'navarro',
@@ -45,7 +45,7 @@ exports.seed = async function(knex) {
     {
       cut_id: -5,
       cs_code: 'mq6s03x0',
-      cut_name: 'c04xa',
+      cut_name: '04xa',
       start_date: '2023-02-22',
       end_date: '2023-02-23',
       animator: 'Bandit',
@@ -54,7 +54,7 @@ exports.seed = async function(knex) {
     {
       cut_id: -6,
       cs_code: 'mq6s03x0',
-      cut_name: 'c05xa',
+      cut_name: '05xa',
       start_date: '2023-02-22',
       end_date: '2023-02-22',
       animator: 'navarro',

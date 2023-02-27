@@ -14,11 +14,11 @@ module.exports = {
     res.status(201).send(newCutInfo);
   },
   async editCut(req, res) {
-    const editCutInfo = await cutsModel.editCut(req.params.cut_id, req.body);
+    const editCutInfo = await cutsModel.editCut(req.params.cut_name, req.body, req.params.cs_code);
     res.status(201).send(editCutInfo);
   },
   async deleteCut(req, res) {
-    const deleteCutInfo = await cutsModel.deleteCut(req.params.cut_id);
+    const deleteCutInfo = await cutsModel.deleteCut(req.params.cut_name, req.params.cs_code);
     res.status(201).send(deleteCutInfo);
   },
   async getAllCuts(req, res) {
@@ -26,7 +26,7 @@ module.exports = {
     res.status(201).send(allCuts);
   },
   async getCutInfo(req, res) {
-    const cutInfo = await cutsModel.getCutInfo(req.params.cut_id);
+    const cutInfo = await cutsModel.getCutInfo(req.params.cut_name, req.params.cs_code);
     res.status(201).send(cutInfo);
   },
 }
