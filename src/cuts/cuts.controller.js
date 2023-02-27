@@ -1,4 +1,3 @@
-const { createNewCut } = require('./cuts.model');
 const cutsModel = require('./cuts.model');
 
 module.exports = {
