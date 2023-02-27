@@ -12,9 +12,12 @@ module.exports = {
       .returning(['cut_id', 'cut_name', 'cs_code']);
   },
 
-  async editCut(cutId, newInfo) {
+  async editCut(cutName, newInfo, csCode) {
     return await knex(CUTS_TABLE)
-      .where('cut_id', cutId)
+      .where({
+        cut_name: cutName,
+        cs_code: csCode
+      })
       .update(newInfo)
       .returning([
         'cut_id',
@@ -27,9 +30,12 @@ module.exports = {
       ]);
   },
 
-  async deleteCut(cutId) {
+  async deleteCut(cutName, csCode) {
     return await knex(CUTS_TABLE)
-      .where('cut_id', cutId)
+      .where({
+        cut_name: cutName,
+        cs_code: csCode
+      })
       .del()
       .returning(['cut_id', 'cut_name']);
   },
@@ -38,8 +44,11 @@ module.exports = {
     return await knex(CUTS_TABLE).where('cs_code', csCode);
   },
 
-  async getCutInfo(cutId) {
-    return await knex(CUTS_TABLE).where('cut_id', cutId);
+  async getCutInfo(cutName, csCode) {
+    return await knex(CUTS_TABLE).where({
+      cut_name: cutName,
+      cs_code: csCode,
+    });
   },
 };
 

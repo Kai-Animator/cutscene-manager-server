@@ -22,13 +22,13 @@ const serverEndpoints = () => {
   // Create new cut
   server.post('/cutscenes/:cs_code/cuts', cutController.createNewCut);
   // Edit existing cuts
-  server.put('/cutscenes/:cs_code/cuts/:cut_id', cutController.editCut);
+  server.put('/cutscenes/:cs_code/cuts/:cut_name', cutController.editCut);
   // Delete existing cuts
-  server.delete('/cutscenes/:cs_code/cuts/:cut_id', cutController.deleteCut);
+  server.delete('/cutscenes/:cs_code/cuts/:cut_name', cutController.deleteCut);
   // Get All Cuts from that scene
   server.get('/cutscenes/:cs_code/cuts', cutController.getAllCuts);
   // Get Cut Info
-  server.get('/cutscenes/:cs_code/cuts/:cut_id', cutController.getCutInfo);
+  server.get('/cutscenes/:cs_code/cuts/:cut_name', cutController.getCutInfo);
 
   return server;
 };
