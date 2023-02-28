@@ -15,9 +15,19 @@ module.exports = {
       total_cuts: 5,
     };
     */
-    const newCutsceneInfo = req.body;
-    const newCutscene = await cutscenesModel.createNewCutscene(newCutsceneInfo);
-    res.status(201).send(newCutscene);
+    let newCutsceneInfo = req.body;
+    const newCutscene = {
+      cs_code: newCutsceneInfo.cs_code,
+      cs_name: newCutsceneInfo.cs_name,
+      start_date: new Date(newCutsceneInfo.start_date),
+      end_date: newCutsceneInfo.end_date !== '' ? new Date(newCutsceneInfo.end_date) : null,
+      due_date: newCutsceneInfo.due_date !== '' ? new Date(newCutsceneInfo.due_date) : null,
+      director: newCutsceneInfo.director,
+      scene_status: newCutsceneInfo.scene_status,
+      total_cuts: parseInt(newCutsceneInfo.total_cuts),
+    };
+    const newCutsceneAdded = await cutscenesModel.createNewCutscene(newCutscene);
+    res.status(201).send(newCutsceneAdded);
   },
 
   async getCutsceneInfo(req, res) {

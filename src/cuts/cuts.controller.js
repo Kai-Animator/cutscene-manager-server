@@ -10,15 +10,33 @@ module.exports = {
       animator: 'navarro',
       cut_status: 'Not started.',
     */
-    const newCutInfo = await cutsModel.createNewCut(req.body);
-    res.status(201).send(newCutInfo);
+    const newCut = req.body;
+
+    const newCutInfo = {
+      cs_code: newCut.cs_code,
+      cut_name: newCut.cut_name,
+      start_date: newCut.start_date !== '' ? new Date(newCut.start_date) : null,
+      end_date: newCut.end_date !== '' ? new Date(newCut.end_date) : null,
+      animator: newCut.animator,
+      cut_status: newCut.cut_status
+    };
+
+    const newCutInfoRes = await cutsModel.createNewCut(newCutInfo);
+    res.status(201).send(newCutInfoRes);
   },
   async editCut(req, res) {
-    const editCutInfo = await cutsModel.editCut(req.params.cut_name, req.body, req.params.cs_code);
+    const editCutInfo = await cutsModel.editCut(
+      req.params.cut_name,
+      req.body,
+      req.params.cs_code
+    );
     res.status(201).send(editCutInfo);
   },
   async deleteCut(req, res) {
-    const deleteCutInfo = await cutsModel.deleteCut(req.params.cut_name, req.params.cs_code);
+    const deleteCutInfo = await cutsModel.deleteCut(
+      req.params.cut_name,
+      req.params.cs_code
+    );
     res.status(201).send(deleteCutInfo);
   },
   async getAllCuts(req, res) {
@@ -26,7 +44,10 @@ module.exports = {
     res.status(201).send(allCuts);
   },
   async getCutInfo(req, res) {
-    const cutInfo = await cutsModel.getCutInfo(req.params.cut_name, req.params.cs_code);
+    const cutInfo = await cutsModel.getCutInfo(
+      req.params.cut_name,
+      req.params.cs_code
+    );
     res.status(201).send(cutInfo);
   },
-}
+};
