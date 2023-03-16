@@ -17,11 +17,6 @@ COPY package*.json ./
 # Expose port 80 and 443 for external access
 EXPOSE 80
 
-# Set environment variables for the PostgreSQL database
-ENV DB_USER=niidl
-ENV DB_PASSWORD=testPassword
-ENV DB_NAME=smile_cutscene
-ENV DB_HOST=localhost
 
   # Run the Knex database migrations
   CMD npm run migrate && \

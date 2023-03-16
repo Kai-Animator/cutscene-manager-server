@@ -12,7 +12,7 @@ services:
     networks:
       - app-network
     environment:
-      - DB_HOST=postgres
+      - DB_HOST=${DB_HOST}
 
   webserver:
     image: nginx:mainline-alpine
@@ -41,16 +41,16 @@ services:
       - web-root:/var/www/html
     depends_on:
       - webserver
-    command: certonly --webroot --webroot-path=/var/www/html --email kaireml@protonmail.com --agree-tos --no-eff-email --force-renewal -d niidl.net  -d www.niidl.net
+    command: certonly --webroot --webroot-path=/var/www/html --email ${EMAIL} --agree-tos --no-eff-email --force-renewal -d niidl.net  -d www.niidl.net
 
   postgres:
     image: postgres
     container_name: postgres
     restart: unless-stopped
     environment:
-      POSTGRES_USER: niidl
-      POSTGRES_PASSWORD: testPassword
-      POSTGRES_DB: smile_cutscene
+      POSTGRES_USER:${POSTGRES_USER}
+      POSTGRES_PASSWORD:${POSTGRES_PASSWORD}
+      POSTGRES_DB:${POSTGRES_DB}
     volumes:
       - postgres-data:/var/lib/postgresql/data
     networks:
@@ -71,6 +71,7 @@ volumes:
       type: none
       device: /home/niidl/niidl-server/dhparam/
       o: bind
+  postgres-data:
 
 networks:
   app-network:
