@@ -18,8 +18,8 @@ COPY package*.json ./
 EXPOSE 80
 
 # Set environment variables for the PostgreSQL database
-ENV DB_USER=melkor
-ENV DB_PASSWORD=
+ENV DB_USER=root
+ENV DB_PASSWORD=admin
 ENV DB_NAME=smile_cutscene
 ENV DB_HOST=localhost
 
