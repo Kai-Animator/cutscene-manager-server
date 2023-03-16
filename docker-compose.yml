@@ -12,7 +12,7 @@ services:
     networks:
       - app-network
     environment:
-      - DB_HOST: ${DB_HOST}
+      - DB_HOST:${DB_HOST}
 
   webserver:
     image: nginx:mainline-alpine
