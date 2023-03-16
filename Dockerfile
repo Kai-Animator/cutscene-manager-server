@@ -12,25 +12,17 @@ RUN npm install --production
 
 # Copy the rest of the application files to the container
 COPY . .
+COPY package*.json ./
 
 # Expose port 80 and 443 for external access
 EXPOSE 80
 
 # Set environment variables for the PostgreSQL database
-ENV POSTGRES_USER=melkor
-ENV POSTGRES_PASSWORD=
-ENV POSTGRES_DB=smile_cutscene
-ENV POSTGRES_HOST=localhost
+ENV DB_USER=melkor
+ENV DB_PASSWORD=
+ENV DB_NAME=smile_cutscene
+ENV DB_HOST=localhost
 
-# Install PostgreSQL and create the database
-# RUN apt-get update && \
-#     apt-get install -y postgresql && \
-#     apt-get clean && \
-#     service postgresql start && \
-#     su postgres -c "psql -c 'CREATE DATABASE smile_cutscene;'"
-
-# Start the PostgreSQL database and wait for it to start
-# service postgresql start && sleep 5 && \
   # Run the Knex database migrations
   CMD npm run migrate && \
   # Seed the database with initial data
