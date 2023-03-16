@@ -18,8 +18,8 @@ COPY package*.json ./
 EXPOSE 80
 
 # Set environment variables for the PostgreSQL database
-ENV DB_USER=root
-ENV DB_PASSWORD=admin
+ENV DB_USER=niidl
+ENV DB_PASSWORD=testPassword
 ENV DB_NAME=smile_cutscene
 ENV DB_HOST=localhost
 
