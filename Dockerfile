@@ -17,22 +17,22 @@ COPY . .
 EXPOSE 80
 
 # Set environment variables for the PostgreSQL database
-ENV POSTGRES_USER=postgres
-ENV POSTGRES_PASSWORD=admin
+ENV POSTGRES_USER=melkor
+ENV POSTGRES_PASSWORD=
 ENV POSTGRES_DB=smile_cutscene
 ENV POSTGRES_HOST=localhost
 
 # Install PostgreSQL and create the database
-RUN apt-get update && \
-    apt-get install -y postgresql && \
-    apt-get clean && \
-    service postgresql start && \
-    su postgres -c "psql -c 'CREATE DATABASE smile_cutscene;'"
+# RUN apt-get update && \
+#     apt-get install -y postgresql && \
+#     apt-get clean && \
+#     service postgresql start && \
+#     su postgres -c "psql -c 'CREATE DATABASE smile_cutscene;'"
 
 # Start the PostgreSQL database and wait for it to start
-CMD service postgresql start && sleep 5 && \
+# service postgresql start && sleep 5 && \
   # Run the Knex database migrations
-  npm run migrate && \
+  CMD npm run migrate && \
   # Seed the database with initial data
   npm run seed && \
   # Start the Express server
